@@ -20,7 +20,7 @@ def importdata():
     print ("Dataset Shape: ", balance_data.shape)
 
     # Printing the dataset obseravtions
-    print ("Dataset: ",balance_data.head())
+    print ("Dataset: \n",balance_data.head())
     return balance_data
 
 # Function to split the dataset
@@ -58,7 +58,6 @@ def tarin_using_entropy(X_train, X_test, y_train):
     # Performing training
     clf_entropy.fit(X_train, y_train)
     return clf_entropy
-
 
 # Function to make predictions
 def prediction(X_test, clf_object):
