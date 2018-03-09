@@ -7,7 +7,7 @@ print("data:\n", x)
 
 class regress:
     # constructor
-    def __init__(self, epoch=150, tol=0.001, alpha=0.001, theta0=1, theta1=1, theta2=1):
+    def __init__(self, epoch=15000, tol=0.001, alpha=0.001, theta0=0, theta1=0, theta2=0):
         self.tol = tol
         self.epoch = epoch
         self.alpha = alpha
@@ -55,7 +55,12 @@ class regress:
                 # plt.scatter(x_vals, y_vals, s=10)
                 # plt.plot(y,yp, color = 'r')
                 # plt.show()
-
+                errorArr = np.absolute(data[:,2] -  np.round(self.theta0 + self.theta1*data[:,0] + self.theta2*data[:,1]))
+                predictedArr = np.round(self.theta0 + self.theta1*data[:,0] + self.theta2*data[:,1])
+                print("predicted array:\n", predictedArr)
+                print("error array:\n",errorArr)
+                error = sum(errorArr)/len(errorArr)
+                print("error = ", error)
                 break
 
 
@@ -63,7 +68,8 @@ class regress:
     def predict(self, a, b):
         ans = self.theta0 + self.theta1*a + self.theta2*b
         sig_ans = 1/(1 + exp((-1)*ans))
-        print("Predicted value is: ",sig_ans)
+        print("Predicted value is: ",round(sig_ans))
+
 
 obj = regress()
 obj.fit(x)
