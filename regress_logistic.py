@@ -49,18 +49,13 @@ class regress:
 
             diff = abs(self.theta0 - oldTheta0) + abs(self.theta1 - oldTheta1) + abs(self.theta2 - oldTheta2)
             if(diff <= self.tol):
-                # y = [i for i in range(min_x, max_x + 1)]
-                # yp = np.polyval([self.theta1, self.theta0], y)
-                #
-                # plt.scatter(x_vals, y_vals, s=10)
-                # plt.plot(y,yp, color = 'r')
-                # plt.show()
                 errorArr = np.absolute(data[:,2] -  np.round(self.theta0 + self.theta1*data[:,0] + self.theta2*data[:,1]))
                 predictedArr = np.round(self.theta0 + self.theta1*data[:,0] + self.theta2*data[:,1])
                 print("predicted array:\n", predictedArr)
                 print("error array:\n",errorArr)
                 error = sum(errorArr)/len(errorArr)
                 print("error = ", error)
+                
                 break
 
 

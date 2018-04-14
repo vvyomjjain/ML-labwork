@@ -10,6 +10,7 @@ p = len(data[data.Play_tennis == 'Yes'])/m
 entropy = -1*p*math.log2(p) - (1-p)*math.log2(1-p)
 print("Intial Entropy = ", entropy)
 min_ent = entropy
+
 for i in data:
     if i!='Day' and i!='Play_tennis':
         set_col = set(data[i])
